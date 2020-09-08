@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel = "stylesheet" href = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/60fe16da1f.js" crossorigin="anonymous"></script>
+        <script src = "https://code.jquery.com/jquery-1.11.3.min.js"></script> 
+        <script src = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/index.js"></script>
+        <script src="js/Functions.js"></script>
+        <title>Multitasking</title>
+    </head>
+    <body>
+        <!--TELA INICIAL-->
+        <div id="telaInicial" class="Telas Ativa">
+            <div class="Navbar">
+                <span><h1>Multitasking</h1></span>
+            </div>
+            <div id="textoTelaInicial">
+                <p id="textoPInicial">Seja bem Vindo!!!<p>
+                Esse é um projeto de um sistema futuro, espero que curta todas as opções criadas especialmente para o consumidor
+            </div> 
+            <div id="boxSessao">
+                <button id="iniciarSessaoBtn" onclick="mudarTela('#telaLogin', 'Comeco');">Iniciar Sessão</button>
+            </div>   
+            <div id="textoCopyright">
+                <p>© 2020 MemorySystems</p>
+            </div>
+            
+        </div>
+        <!--TELA DE LOGIN-->
+        <div id="telaLogin" class="Telas">
+            <div class="Navbar">
+                <span><h1>Multitasking</h1></span>
+            </div>
+            <div id="formLoginBox">
+                <form id="FormLogin">
+                    <input type="text" class="formLogin" placeholder="Usuário">
+                    <input type="password" class="formLogin" placeholder="Senha">
+                </form>    
+            </div>
+            <div>
+                <button id="entrarBtn" onclick="verificarLogin(); mudarTela('#telaInicio');">Entrar</button>
+            </div>
+            <div id="textoTelaLogin">
+                Não tem cadastro?
+            </div>
+            <div>
+                <button id="inscricaoBtn" onclick="mudarTela('#telaInscricao');"><b>Desejo me inscrever</b></button>
+            </div>
+            <div id="textoCopyright">
+                <p>© 2020 MemorySystems</p>
+            </div>
+        </div>
+        <!--TELA DE INSCRICAO-->
+        <div id="telaInscricao" class="Telas">
+            <div class="Navbar">
+                <span><h1>Multitasking</h1></span>
+            </div>
+            <div id="textoTelaInscricao">
+                <p id="textoInscricao">Zona de inscrição</p>
+                <p id="textoInscricao1">(Digite seus dados aqui)</p>
+            </div>
+            <div id="formInscricaoBox">
+                <form id="FormInscricao">
+                    <input type="text" placeholder="Nome de usuário">
+                    <input type="password" class="formInscricao" placeholder="Digite sua senha">
+                    <input type="password" class="formInscricao" placeholder="Confirme sua senha">
+                </form>
+                <button id="enviarBtn" onclick="validarCadastro(); mudarTela('#telaLogin'); limparCampos('#FormInscricao', 2);">Enviar</button>
+            </div>
+            <div id="textoCopyright">
+                <p>© 2020 MemorySystems</p>
+            </div>
+        </div>
+        <!--TELA DE INICIO-->
+        <div id = "telaInicio" class="Telas">
+            <div class="Navbar">
+                <span><h1>Multitasking</h1></span>
+            </div>
+            <div id="opcoesApp">
+                <div id="listApp">
+                    <button id="calculadoraBtn">
+                        <i class="fas fa-calculator"></i> Calculadora</button>
+                    <button id="quizBtn">
+                        <i class="fas fa-brain"></i> Quiz</button>
+                    <button id="Btn">Algo</button>
+                </div>
+            </div>
+            <div id="textoCopyright">
+                <p>© 2020 MemorySystems</p>
+            </div>
+        </div>
+
+    </body>
+</html>
