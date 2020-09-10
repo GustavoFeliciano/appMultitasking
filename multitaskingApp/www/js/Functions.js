@@ -90,3 +90,111 @@ function limparCampos(Form, numerosCampos){
         formPLimpar.elements[i].value = "";
     }
 }
+
+function mudarIntFloat(){
+
+    var form = document.forms["FormCalculadora"];
+    var n1 = parseFloat(form.elements[0].value);
+
+    n1 += 25.5;
+
+    alert(n1);
+}
+
+
+
+//FUNCOES DA CALCULADORA
+
+var textoCal = "";
+var ladoEsquerd;
+var ladoEsquerdB = true;
+var ladoDireit;
+var ladoDireitB = false;
+var funcArit;
+
+function escreverDigito(Digito){
+    
+    document.getElementById("numerosCal").innerHTML += Digito;
+}
+
+function suaMae(){
+
+    textoCal = "";
+    document.getElementById("numerosCal").innerHTML = "";
+    ladoEsquerdB = true;
+    ladoDireitB = false;
+}
+
+function numeroPCal(Num){
+
+    textoCal += Num;
+
+    if(ladoEsquerdB){
+      ladoEsquerd += parseFloat(Num);
+    }else{
+        ladoDireit = parseFloat("");
+    }
+}
+
+function guardarEquacao(){
+    if(ladoEsquerdB){
+        ladoEsquerd = parseFloat(textoCal);
+    }else{
+        ladoDireit = parseFloat(textoCal);
+    }
+}
+
+function funcoesAritmeticas(func){
+
+    if(func=="."){
+        textoCal += ".";
+        return;
+    }else{      
+        guardarEquacao();
+        suaMae();
+        if(func=="="){
+            Calcular();
+        }
+     if(ladoEsquerdB){
+        ladoEsquerdB = false;
+        ladoDireitB = true;
+     }else{
+        ladoEsquerdB = true;
+        ladoDireitB = false;
+     }     
+    funcArit=func; 
+    }
+}
+
+function Calcular(){
+    var resultado;
+
+    if(funcArit=="/"){
+        resultado = ladoEsquerd / ladoDireit;
+    }else{
+        if(funcArit=="*"){
+            resultado = ladoEsquerd * ladoDireit;
+        }else{
+            if(funcArit=="-"){
+                resultado = ladoEsquerd - ladoDireit;
+            }else{
+                if(funcArit=="+"){
+                    resultado = ladoEsquerd + ladoDireit;
+                }else{
+                    if(funcArit=="pot"){
+                        resultado = Math.pow(ladoEsquerd,2);
+                    }else{
+                        if(funcArit=="raiz"){
+                            resultado = Math.sqrt(ladoEsquerd);
+                    }else{
+                        if(funcArit=="mod"){
+                            resultado = ladoEsquerd % ladoDireit;
+                        }
+                    }
+                }   
+              }
+            }
+        }
+    }
+    document.getElementById("numerosCal").innerHTML = resultado;
+}

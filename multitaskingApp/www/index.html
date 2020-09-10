@@ -19,7 +19,7 @@
     </head>
     <body>
         <!--TELA INICIAL-->
-        <div id="telaInicial" class="Telas Ativa">
+        <div id="telaInicial" class="Telas">
             <div class="Navbar">
                 <span><h1>Multitasking</h1></span>
             </div>
@@ -28,7 +28,7 @@
                 Esse é um projeto de um sistema futuro, espero que curta todas as opções criadas especialmente para o consumidor
             </div> 
             <div id="boxSessao">
-                <button id="iniciarSessaoBtn" onclick="mudarTela('#telaLogin', 'Comeco');">Iniciar Sessão</button>
+                <button id="iniciarSessaoBtn-Inicial" onclick="mudarTela('#telaLogin', 'Comeco');">Iniciar Sessão</button>
             </div>   
             <div id="textoCopyright">
                 <p>© 2020 MemorySystems</p>
@@ -47,13 +47,13 @@
                 </form>    
             </div>
             <div>
-                <button id="entrarBtn" onclick="verificarLogin(); mudarTela('#telaInicio');">Entrar</button>
+                <button id="entrarBtn-Login" onclick="verificarLogin(); mudarTela('#telaInicio');">Entrar</button>
             </div>
             <div id="textoTelaLogin">
                 Não tem cadastro?
             </div>
             <div>
-                <button id="inscricaoBtn" onclick="mudarTela('#telaInscricao');"><b>Desejo me inscrever</b></button>
+                <button id="inscricaoBtn-Login" onclick="mudarTela('#telaInscricao');"><b>Desejo me inscrever</b></button>
             </div>
             <div id="textoCopyright">
                 <p>© 2020 MemorySystems</p>
@@ -82,19 +82,61 @@
         </div>
         <!--TELA DE INICIO-->
         <div id = "telaInicio" class="Telas">
-            <div class="Navbar">
+            <div class = "Navbar">
                 <span><h1>Multitasking</h1></span>
             </div>
-            <div id="opcoesApp">
-                <div id="listApp">
-                    <button id="calculadoraBtn">
-                        <i class="fas fa-calculator"></i> Calculadora</button>
-                    <button id="quizBtn">
-                        <i class="fas fa-brain"></i> Quiz</button>
-                    <button id="Btn">Algo</button>
+            <div id = "opcoesApp">
+                <div id = "listApp">
+                    <button id = "calculadoraBtn-Inicio" onclick = "mudarTela('#telaCalculadora');">
+                        <i class = "fas fa-calculator"></i> Calculadora
+                    </button>
+                    <button id = "quizBtn">
+                        <i class = "fas fa-brain"></i> Quiz
+                    </button>
+                    <button id="Btn">Algo
+
+                    </button>
                 </div>
             </div>
-            <div id="textoCopyright">
+            <div id = "textoCopyright">
+                <p>© 2020 MemorySystems</p>
+            </div>
+        </div>
+        <!--TELA DA CALCULADORA-->
+        <div id = "telaCalculadora" class = "Telas Ativa">
+            <div class = "Navbar">
+                <span><h1>Multitasking</h1></span>
+            </div>
+            <div id="textoTelaCalculadora">
+                <h1 id="numerosCal"></h1>
+            </div>
+            <div id = "calculadoraBox">
+                    <button id="btnsCal0" onclick="escreverDigito('pot'); funcoesAritmeticas('pot');">X²</button>
+                    <button id="btnsCal1" onclick="escreverDigito('raiz'); funcoesAritmeticas('raiz');">
+                        <i class="fas fa-square-root-alt"></i>
+                    </button>
+                    <button id="btnsCal2" onclick="escreverDigito('MOD'); funcoesAritmeticas('mod');">MOD</button>
+                    <button id="btnsCal3" onclick="suaMae('');">CE</button>
+                    <button id="btnsCal4" onclick="escreverDigito('7'); numeroPCal('7')">7</button>
+                    <button id="btnsCal5" onclick="escreverDigito('8'); numeroPCal('8')">8</button>
+                    <button id="btnsCal6" onclick="escreverDigito('9'); numeroPCal('9')">9</button>
+                    <button id="btnsCal7" onclick="escreverDigito('/'); funcoesAritmeticas('/');">/</button>
+                    <button id="btnsCal8" onclick="escreverDigito('4'); numeroPCal('4')">4</button>
+                    <button id="btnsCal9" onclick="escreverDigito('5'); numeroPCal('5')">5</button>
+                    <button id="btnsCal10" onclick="escreverDigito('6'); numeroPCal('6')">6</button>
+                    <button id="btnsCal11" onclick="escreverDigito('*'); funcoesAritmeticas('*');">*</button>
+                    <button id="btnsCal12" onclick="escreverDigito('1'); numeroPCal('1')">1</button>
+                    <button id="btnsCal13" onclick="escreverDigito('2'); numeroPCal('2')">2</button>
+                    <button id="btnsCal14" onclick="escreverDigito('3'); numeroPCal('3')">3</button>
+                    <button id="btnsCal15" onclick="escreverDigito('-'); funcoesAritmeticas('-');">-</button>
+                    <button id="btnsCal16" onclick="escreverDigito('0'); numeroPCal('0')">0</button>
+                    <button id="btnsCal17" onclick="escreverDigito('.'); funcoesAritmeticas('.');">.</button>
+                    <button id="btnsCal18" onclick="escreverDigito('='); funcoesAritmeticas('=');">=</button>
+                    <button id="btnsCal19" onclick="escreverDigito('+'); funcoesAritmeticas('+');">+</button>
+                <!--<button id="calculadoraBtn-Calculadora" onclick="mudarIntFloat();">Teste</button>
+                -->
+                </div>
+            <div id = "textoCopyrightCal">
                 <p>© 2020 MemorySystems</p>
             </div>
         </div>

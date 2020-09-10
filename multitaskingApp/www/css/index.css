@@ -213,3 +213,153 @@ text-decoration: underline;
     width: 100%;
     height: 50%;
 }
+/*/////////////////////////////*/
+/* TELA DA CALCULADORA */
+/*/////////////////////////////*/
+
+/* PADRAO DE TEXTO */
+
+#textoTelaCalculadora{
+    position: absolute;
+    width: 90%;
+    height: 10%;
+    background: #363636;
+    border: 2.5px solid black;
+    left: 4.5%;
+    bottom: 75%;
+    color: white;
+    font-size: 30px;
+    text-align: right;
+    line-height: 60px;
+}
+
+/* BOTOES CALCULADORA */
+
+#calculadoraBox button{
+    width: 25%;
+    height: 15%;
+    background: #DCDCDC;
+    border: 2px solid #696969;
+}
+#btnsCal0{
+    position: absolute;
+    left: 0%;
+    bottom: 80%;
+}
+#btnsCal1{
+    position: absolute;
+    left: 25%;
+    bottom: 80%;
+}
+#btnsCal2{
+    position: absolute;
+    left: 50%;
+    bottom: 80%;
+}
+#btnsCal3{
+    position: absolute;
+    left: 75%;
+    bottom: 80%;
+}
+#btnsCal4{
+    position: absolute;
+    left: 0%;
+    bottom: 65%;
+}
+#btnsCal5{
+    position: absolute;
+    left: 25%;
+    bottom: 65%;
+}
+#btnsCal6{
+    position: absolute;
+    left: 50%;
+    bottom: 65%;
+}
+#btnsCal7{
+    position: absolute;
+    left: 75%;
+    bottom: 65%;
+}
+#btnsCal8{
+    position: absolute;
+    left: 0%;
+    bottom: 50%;
+}
+#btnsCal9{
+    position: absolute;
+    left: 25%;
+    bottom: 50%;
+}
+#btnsCal10{
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+}
+#btnsCal11{
+    position: absolute;
+    left: 75%;
+    bottom: 50%;
+}
+#btnsCal12{
+    position: absolute;
+    left: 0%;
+    bottom: 35%;
+}
+#btnsCal13{
+    position: absolute;
+    left: 25%;
+    bottom: 35%;
+}
+#btnsCal14{
+    position: absolute;
+    left: 50%;
+    bottom: 35%;
+}
+#btnsCal15{
+    position: absolute;
+    left: 75%;
+    bottom: 35%;
+}
+#btnsCal16{
+    position: absolute;
+    left: 0%;
+    bottom: 20%;
+}
+#btnsCal17{
+    position: absolute;
+    left: 25%;
+    bottom: 20%;
+}
+#btnsCal18{
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+}
+#btnsCal19{
+    position: absolute;
+    left: 75%;
+    bottom: 20%;
+}
+
+/* GERAL */
+#telaCalculadora{
+    width: 100%;
+    width: 100%;
+    background: #696969;
+}
+
+#calculadoraBox{
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    bottom: 20%;
+}
+#textoCopyrightCal{
+    bottom: 5%;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
