@@ -5,8 +5,6 @@
 
 var inscricaoB=false;
 var validadeLogin=false;
-var UserB;
-var PasswordB;
 
 function mudarTela(Tela, Verificacao){
     if(Tela=='#telaInicio'){
@@ -27,52 +25,6 @@ function mudarTela(Tela, Verificacao){
     }
 }
 
-function verificarLogin(){
-
-    var formLogin = document.forms["FormLogin"];
-    var User = formLogin.elements[0].value;
-    var Password = formLogin.elements[1].value;
-    
-    if(User!=UserB){
-        alert("Login ou senha inválidos!!");
-        validadeLogin = false;
-        return;
-    }else{
-        if(Password!=PasswordB){
-            alert("Login ou senha inválidos!!");
-            validadeLogin = false;
-            return;
-        }else{
-            validadeLogin = true;
-        }
-    }
-}
-
-function validarCadastro(){
-    var formInscricao = document.forms["FormInscricao"];
-    var User = formInscricao.elements[0].value;
-    var Password = formInscricao.elements[1].value;
-    var passwordConfirm = formInscricao.elements[2].value;
-    var Valido = false;
-
-    if(User==""||Password==""||passwordConfirm==""){
-        alert("Campos obrigatórios estão em branco, por favor preencha!!");
-        inscricaoB = false;
-        return Valido = false;
-    }
-    if(Password === passwordConfirm){
-        Valido = true;
-    }else{
-        alert("As senhas não são iguais, por favor digite novamente");
-        Valido = false;
-        inscricaoB = false;
-    }
-    if(Valido){
-        UserB = User;
-        PasswordB = Password;
-        inscricaoB = true;
-    }
-}
 
 function limparCampos(Form, numerosCampos){
 
@@ -117,7 +69,7 @@ function escreverDigito(Digito){
     document.getElementById("numerosCal").innerHTML += Digito;
 }
 
-function suaMae(){
+function Apagar(){
 
     textoCal = "";
     document.getElementById("numerosCal").innerHTML = "";
@@ -151,11 +103,19 @@ function funcoesAritmeticas(func){
         return;
     }else{      
         guardarEquacao();
-        suaMae();
+        Apagar();
         if(func=="="){
             Calcular();
+        }else{
+        if(func=="raiz"){
+            Calcular();
+            }else{
+                if(func=="pot"){
+                    Calcular();
+            }
         }
-     if(ladoEsquerdB){
+    }    
+        if(ladoEsquerdB){
         ladoEsquerdB = false;
         ladoDireitB = true;
      }else{
@@ -198,3 +158,86 @@ function Calcular(){
     }
     document.getElementById("numerosCal").innerHTML = resultado;
 }
+
+//BANCO DE DADOS
+
+var bd = window.openDatabase("multitaskingBD","1.0","myBase",4048);
+bd.transaction(function(criar){
+    criar.executeSql("CREATE TABLE Login(Senha TEXT PRYMARY KEY, Nome TEXT )");
+});
+
+function verificarLogin(){
+
+    var formLogin = document.forms["FormLogin"];
+    var User = formLogin.elements[0].value;
+    var Password = formLogin.elements[1].value;
+
+    bd.transaction(function(mostrarDados){
+        mostrarDados.executeSql('SELECT * FROM Login', [], function(mostrarDados,resultado){
+            var rows = resultado.rows;
+            var tamanho = rows.length;
+            var UserB = [tamanho];
+            var PasswordB = [tamanho];
+
+            for(i=0;i < rows.length;i++){
+                UserB[i] = rows[i].Nome;
+                PasswordB[i] = rows[i].Senha;
+                
+                if(UserB[i]==User){
+                    if(PasswordB[i]==Password){
+                        validadeLogin = true;
+                        mudarTela("#telaInicio");
+                        return;
+                    }
+                }
+            }
+
+            alert("Usuário ou senha incorretos!!");
+
+        });
+
+    });
+
+}
+
+function validarCadastro(){
+    var formInscricao = document.forms["FormInscricao"];
+    var User = formInscricao.elements[0].value;
+    var Password = formInscricao.elements[1].value;
+    var passwordConfirm = formInscricao.elements[2].value;
+    var Valido = false;
+
+    if(User==""||Password==""||passwordConfirm==""){
+        alert("Campos obrigatórios estão em branco, por favor preencha!!");
+        inscricaoB = false;
+        return Valido = false;
+    }
+    if(Password === passwordConfirm){
+        Valido = true;
+    }else{
+        alert("As senhas não são iguais, por favor digite novamente");
+        Valido = false;
+        inscricaoB = false;
+    }
+    if(Valido){
+        bd.transaction(function(armazenar){
+            armazenar.executeSql("INSERT INTO Login VALUES (?,?)",[Password,User]);
+        })
+        inscricaoB = true;
+    }
+}
+
+
+
+//FUNCOES DE PERMISSÕES DO APP
+
+var permissoes = cordova.plugin.permissions;
+
+permissoes.checkPermission(permissoes.WRITE_CALENDAR,function(status){
+
+    if(!status.hasPermission){
+        permissoes.resquestPermissions(permissoes.WRITE_CALENDAR,function(status){
+            alert("toper");
+        },alert("Deu merda"));
+    }
+},alert("Deu merda"));

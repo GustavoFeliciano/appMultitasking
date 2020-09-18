@@ -63,7 +63,7 @@
 }
 
 /* BOTOES TELA INICIAL */
-#iniciarSessaoBtn{
+#iniciarSessaoBtn-Inicial{
     background: #8FBC8F;
     border: 2.5px solid black;
     position: absolute;
@@ -92,7 +92,7 @@ p#textoPInicial{
 /*/////////////////////////////*/
 
 /* BOTOES LOGIN */
-#entrarBtn{
+#entrarBtn-Login{
     position: absolute;
     width: 38%;
     height: 40px;
@@ -107,7 +107,7 @@ p#textoPInicial{
     font-size: 20px; 
 }
 
-#inscricaoBtn{
+#inscricaoBtn-Login{
     position: absolute;
     width: 62.5%;
     height: 50px;
@@ -157,7 +157,7 @@ input.formLogin{
 
 /* BOTOES INSCRICAO */
 
-#enviarBtn{
+#enviarBtn-Inscricao{
     position: absolute;
     bottom: 30%;
     width: 45%;
